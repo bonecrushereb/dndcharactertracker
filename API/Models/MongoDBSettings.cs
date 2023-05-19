@@ -1,4 +1,4 @@
-namespace dndCharacters.Models
+namespace API.Models
 {
     public class MongoDBSettings
     {

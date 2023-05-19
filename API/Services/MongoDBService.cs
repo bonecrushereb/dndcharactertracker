@@ -1,9 +1,9 @@
-using dndCharacters.Models;
+using API.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
 
-namespace dndCharacters.Services;
+namespace API.Services;
 
 public class MongoDBService 
 { 

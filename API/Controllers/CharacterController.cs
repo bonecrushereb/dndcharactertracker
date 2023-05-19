@@ -1,7 +1,9 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
-using dndCharacters.Services;
+using API.Services;
+using API.Models;
 
-namespace Character.Controllers
+namespace API.Controllers
 {
     [Controller]
     [Route("api/[controller]")]
@@ -16,5 +18,5 @@ namespace Character.Controllers
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<dndCharacters>>> GetCharacter() {}
+    public async Task<ActionResult<List<Character>>> GetCharacter() {}
  }
