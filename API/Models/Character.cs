@@ -7,57 +7,60 @@ namespace API.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public int Id { get; set; }
+        public string Id { get; set; }
         
         [BsonElement("name")]
-        public string Name { get; set; } = null;
+        public string Name { get; set; }
+
+        [BsonElement("level")]
+        public int Level { get; set; }
 
         [BsonElement("race")]
-       public string Race { get; set; } = null;
+       public string Race { get; set; }
 
        [BsonElement("class")]
-       public string Class { get; set; } = null;
+       public string Class { get; set; }
 
        [BsonElement("abilities")]
-       public string Abilities { get; set; } = null;
+       public string Abilities { get; set; }
 
        [BsonElement("background")]
-       public string Background{ get; set; } = null;
+       public string Background{ get; set; }
        
        [BsonElement("skillproficiencies")]
-       public string Skillproficiencies { get; set; } = null;
+       public string Skillproficiencies { get; set; }
 
        [BsonElement("toolproficiencies")]
-       public string Toolproficiencies { get; set; } = null;
+       public string Toolproficiencies { get; set; }
 
        [BsonElement("languages")]
-       public string Languages { get; set; } = null;
+       public string Languages { get; set; }
 
        [BsonElement("personalitytrait")]
-       public string PersonalityTrait { get; set; } = null;
+       public string PersonalityTrait { get; set; }
 
        [BsonElement("ideals")]
-       public string Ideals { get; set; } = null;
+       public string Ideals { get; set; }
        
         [BsonElement("bonds")]
-       public string Bonds { get; set; } = null;
+       public string Bonds { get; set; }
 
        [BsonElement("flaws")]
-       public string Flaws { get; set; } = null;
+       public string Flaws { get; set; }
 
        [BsonElement("organizations")]
-       public string Organizations { get; set; } = null;
+       public string Organizations { get; set; }
 
        [BsonElement("allies")]
-       public string Allies { get; set; } = null;
+       public string Allies { get; set; }
 
        [BsonElement("enemies")]
-       public string Enemies { get; set; } = null;
+       public string Enemies { get; set; }
 
        [BsonElement("backstore")]
-       public string Backstory { get; set; } = null;
+       public string Backstory { get; set; }
 
        [BsonElement("equipment")]
-       public List<string> Equipment { get; set; } = null;
+       public List<string> Equipment { get; set; }
     }
 }
