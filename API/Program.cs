@@ -1,6 +1,6 @@
 
-using dndCharacters.Models;
-using dndCharacters.Services;
+using API.Models;
+using API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
