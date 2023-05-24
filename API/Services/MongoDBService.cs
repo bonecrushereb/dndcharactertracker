@@ -29,11 +29,8 @@ public class MongoDBService
         return await _characterCollection.Find(filter).ToListAsync();
     }
 
-    public async Task EditCharacter(string id, string characterId) {
-        FilterDefinition<Character> filter = Builders<Character>.Filter.Eq("Id", id);
-        UpdateDefinition<Character> update = Builders<Character>.Update.AddToSet<string>("characterId", characterId);
-        await _characterCollection.UpdateOneAsync(filter, update);
-        return; 
+    public async Task EditCharacter(string id, Character updatedCharacter) {
+      return await _characterCollection.ReplaceOne(character => character.Id == id, updatedCharacter); 
     }
 
     public async Task DeleteCharacter(string id) {

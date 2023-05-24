@@ -26,15 +26,31 @@ namespace API.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateCharacter( Character character) {
+    public async Task<IActionResult> CreateCharacter([FromBody] Character character) {
         await _mongoDBService.CreateCharacter(character);
         return CreatedAtAction(nameof(CreateCharacter), new { id = character.Id}, character);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> EditCharacter(string id, [FromBody] string characterId) {
-        await  _mongoDBService.EditCharacter(id, characterId);
-        return NoContent();
+    public async Task<IActionResult> EditCharacter(string id, [FromBody] Character character) {
+        try
+        {
+            if (id != character.Id) {
+                return BadRequest("character id mismatch");
+            }
+
+            var characterToUpdate = await _mongoDBService.GetCharacter(id);
+
+            if (characterToUpdate == null) {
+                return NotFound($"Character with Id= {id} not found");
+            }
+
+            return await _mongoDBService.EditCharacter(character);
+        }
+        catch (System.Exception ex)
+        {
+             return StatusCode(StatusCodes.Status500InternalServerError, "Error updating data");
+        }
     }
 
     [HttpDelete("{id}")]
