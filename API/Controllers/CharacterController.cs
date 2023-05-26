@@ -14,49 +14,61 @@ namespace API.Controllers
     public CharacterController(MongoDBService mongoDBService) {
         _mongoDBService = mongoDBService;
     }
-
     [HttpGet]
-    public async Task<ActionResult<List<Character>>> GetCharacters() {
-        return await _mongoDBService.GetCharacters();
-    }
+    public async Task<List<Character>> Get() =>
+        await _mongoDBService.GetAsync();
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<List<Character>>> GetCharacter(string id, string characterId) {
-        return await _mongoDBService.GetCharacter(id);
+    public async Task<ActionResult<Character>> Get(string id)
+    {
+        var character = await _mongoDBService.GetAsync(id);
+
+        if (character is null)
+        {
+            return NotFound();
+        }
+
+        return character;
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateCharacter([FromBody] Character character) {
-        await _mongoDBService.CreateCharacter(character);
-        return CreatedAtAction(nameof(CreateCharacter), new { id = character.Id}, character);
+    public async Task<IActionResult> Post(Character newCharacter)
+    {
+        await _mongoDBService.CreateAsync(newCharacter);
+
+        return CreatedAtAction(nameof(Get), new { id = newCharacter.Id }, newCharacter);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> EditCharacter(string id, [FromBody] Character character) {
-        try
+    public async Task<IActionResult> Update(string id, [FromBody] Character updatedCharacter)
+    {
+        var character = await _mongoDBService.GetAsync(id);
+        
+        if (character is null)
         {
-            if (id != character.Id) {
-                return BadRequest("character id mismatch");
-            }
-
-            var characterToUpdate = await _mongoDBService.GetCharacter(id);
-
-            if (characterToUpdate == null) {
-                return NotFound($"Character with Id= {id} not found");
-            }
-
-            return await _mongoDBService.EditCharacter(character);
+            return NotFound($"character with id = {id} not found");
         }
-        catch (System.Exception ex)
-        {
-             return StatusCode(StatusCodes.Status500InternalServerError, "Error updating data");
-        }
+
+        updatedCharacter.Id = character.Id;
+
+        await _mongoDBService.UpdateAsync(id, updatedCharacter);
+
+        return NoContent();
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteCharacter(string id) {
-        await _mongoDBService.DeleteCharacter(id);
-        return NoContent();
+    public async Task<IActionResult> Delete(string id)
+    {
+        var character = await _mongoDBService.GetAsync(id);
+
+            if (character is null)
+            {
+                return NotFound();
+            }
+
+            await _mongoDBService.RemoveAsync(id);
+
+            return NoContent();
+        }
     }
- }
 }
