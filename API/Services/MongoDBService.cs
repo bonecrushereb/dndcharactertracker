@@ -15,27 +15,18 @@ public class MongoDBService
         _characterCollection = database.GetCollection<Character>(mongoDBSettings.Value.CollectionName);
     }
 
-    public async Task CreateCharacter(Character character) {
-        await _characterCollection.InsertOneAsync(character);
-        return;
-    }
+    public async Task<List<Character>> GetAsync() =>
+        await _characterCollection.Find(_ => true).ToListAsync();
 
-    public async Task<List<Character>> GetCharacters() {
-        return await _characterCollection.Find(new BsonDocument()).ToListAsync();
-    }
+    public async Task<Character> GetAsync(string id) =>
+        await _characterCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-    public async Task<List<Character>> GetCharacter(string id) {
-        var filter = Builders<Character>.Filter.Eq("Id", id);
-        return await _characterCollection.Find(filter).ToListAsync();
-    }
+    public async Task CreateAsync(Character newCharacter) =>
+        await _characterCollection.InsertOneAsync(newCharacter);
 
-    public async Task EditCharacter(string id, Character updatedCharacter) {
-      return await _characterCollection.ReplaceOne(character => character.Id == id, updatedCharacter); 
-    }
+    public async Task UpdateAsync(string id, Character updatedCharacter) =>
+        await _characterCollection.ReplaceOneAsync(updatedCharacter => updatedCharacter.Id == id, updatedCharacter);
 
-    public async Task DeleteCharacter(string id) {
-        FilterDefinition<Character> filter = Builders<Character>.Filter.Eq("Id", id);
-        await _characterCollection.DeleteOneAsync(filter);
-        return;
-    }
+    public async Task RemoveAsync(string id) =>
+        await _characterCollection.DeleteOneAsync(x => x.Id == id);
 }
