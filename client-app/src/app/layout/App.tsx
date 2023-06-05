@@ -1,29 +1,27 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import axios from 'axios';
-import { Container, List } from 'semantic-ui-react';
-import { Character } from '../models/character';
+import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import CharacterDashboard from '../../features/characters/dashboard/CharacterDashboard';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import CharacterDetails from '../../features/characters/details/CharacterDetails';
+import { useStore } from '../store/store';
+import { observer } from 'mobx-react-lite';
 
 function App() {
-  const [characters, setCharacters] = useState<Character[]>([]);
+  const{characterStore} = useStore();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/Character')
-      .then(response => {
-        setCharacters(response.data);
-      })
-  }, [])
+    characterStore.loadCharacters();
+  }, [characterStore]);
 
   return (
-    <Fragment>
+    <Router>
       <Navbar />
-      <Container style={{marginTop: '7em'}}>
-        <CharacterDashboard characters={characters}/>
-      </Container>
-    
-    </Fragment>
+      <Routes>
+        <Route path='/' element={<CharacterDashboard />} />
+        <Route path='/characters/:id' element={<CharacterDetails />}
+      </Routes>
+    </Router>
   );
 }
 
-export default App;
+export default observer(App);
