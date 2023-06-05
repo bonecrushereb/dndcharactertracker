@@ -1,18 +1,17 @@
 import React from "react";
-import { Grid } from "semantic-ui-react";
-import { Character } from "../../../app/models/character";
+import { Container, Grid } from "semantic-ui-react";
 import CharacterList from "./CharacterList";
+import { observer } from "mobx-react-lite";
 
-interface Props {
-    characters: Character[];
-}
 
-export default function CharacterDashboard({characters}: Props) {
+export default observer(function CharacterDashboard() {
     return (
-        <Grid>
-            <Grid.Column width='10'>
-                <CharacterList characters={characters}/>
-            </Grid.Column>
-        </Grid>
+        <Container style={{marginTop: '7em'}}>
+            <Grid>
+                <Grid.Column width='10'>
+                    <CharacterList />
+                </Grid.Column>
+            </Grid>
+        </Container>
     );
-}
+})

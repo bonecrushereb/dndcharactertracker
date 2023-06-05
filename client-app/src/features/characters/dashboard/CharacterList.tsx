@@ -1,12 +1,12 @@
 import React from "react";
-import { Character } from "../../../app/models/character";
 import { Button, Item, Segment } from "semantic-ui-react";
+import { observer } from "mobx-react-lite";
+import { useStore } from "../../../app/store/store";
 
-interface Props {
-    characters: Character[];
-}
 
-export default function CharacterList({characters}: Props) {
+export default observer(function CharacterList() {
+    const {characterStore} = useStore();
+    const { characters } = characterStore;
     return (
         <Segment>
             <Item.Group divided>
@@ -23,4 +23,4 @@ export default function CharacterList({characters}: Props) {
             </Item.Group>
         </Segment>
     );
-}
+})
