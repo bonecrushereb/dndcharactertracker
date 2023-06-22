@@ -2,7 +2,8 @@ import api from "../utils/api";
 import {
     GET_CHARACTERS,
     GET_CHARACTER,
-    CHARACTER_ERROR
+    CHARACTER_ERROR,
+    CREATE_CHARACTER
 } from './types';
 
 
@@ -36,5 +37,23 @@ export const getCharacter = id => async (dispatch) => {
             type: CHARACTER_ERROR,
             payload: { msg: err.response.statusText, status: err.response.status }
         });
+    }
+}
+
+//Create Character
+export const createCharacter = (formData, navigate) => async dispatch => {
+    try {
+        const res = await api.post('/api/character', formData);
+        dispatch({
+            type: GET_CHARACTER,
+            payload: res.data
+        })
+    } catch (err) {
+        const errors = err.response.data.errors;
+        if (errors) console.log(errors);
+        dispatch({
+            type: CHARACTER_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        })
     }
 }

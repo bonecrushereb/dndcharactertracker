@@ -9,8 +9,10 @@ namespace API.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         
-        [BsonElement("name")]
-        public string Name { get; set; }
+        [BsonElement("charcterName")]
+        public string CharacterName { get; set; }
+        [BsonElement("playerName")]
+        public string PlayerName { get; set; }
 
         [BsonElement("level")]
         public int Level { get; set; }
@@ -20,6 +22,33 @@ namespace API.Models
 
        [BsonElement("class")]
        public string Class { get; set; }
+
+       [BsonElement("alignment")]
+       public string Alignment { get; set; }
+
+       [BsonElement("strength")]
+       public int Strength { get; set; }
+
+       [BsonElement("Dexterity")]
+       public int Dexterity { get; set; }
+
+       [BsonElement("Constitution")]
+       public int Constitution { get; set; }
+
+       [BsonElement("Intelligence")]
+       public int Intelligence { get; set; }
+
+       [BsonElement("Wisdom")]
+       public int Wisdom { get; set; }
+
+       [BsonElement("Charisma")]
+       public int Charisma { get; set; }
+
+       [BsonElement("Proficiency")]
+       public int Proficiency { get; set; }
+
+       [BsonElement("Speed")]
+       public int Speed { get; set; }
 
        [BsonElement("abilities")]
        public string Abilities { get; set; }

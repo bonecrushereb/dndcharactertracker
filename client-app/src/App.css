@@ -8,3 +8,14 @@
 body {
   background-color: #EAEAEA !important;
 }
+
+section {
+  margin-top: 100px;
+  margin-left: 25px;
+}
+
+/* form */
+
+input {
+  height: 50px;
+}
