@@ -2,6 +2,8 @@ import {
     GET_CHARACTERS,
     GET_CHARACTER,
     CHARACTER_ERROR,
+    UPDATE_CHARACTER,
+    CREATE_CHARACTER
 } from '../actions/types';
 
 const initialState = {
@@ -28,6 +30,11 @@ function characterReducer(state = initialState, action) {
             return {
                 ...state,
                 error: payload
+            };
+        case CREATE_CHARACTER:
+            return {
+                ...state,
+                character: [payload, ...state.characters]
             };
         default:
             return state;
