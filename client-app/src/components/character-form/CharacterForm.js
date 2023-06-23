@@ -130,15 +130,43 @@ const onSubmit = (e) => {
           <Form.Field control={Input} placeholder='Race' name='race' value={race} onChange={onChange} style={{marginTop: '10px'}} />
           <Form.Field control={Input} placeholder='Alignment' name='alignment' value={alignment} onChange={onChange} style={{marginTop: '10px', width: '200px'}} />
         </Form.Group>
-          <Form.Group style={{marginTop: '150px', display: 'inline-block', width: '60px'}}>
-          <Form.Field control={Input} placeholder='strength' name='strength' value={strength} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
-          <Form.Field control={Input} placeholder='dexterity' name='dexterity' value={dexterity} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
-          <Form.Field control={Input} placeholder='constitution' name='constitution' value={constitution} onChange={onChange} style={{width: '110px',  margin: '20px'}}/>
-          <Form.Field control={Input} placeholder='intelligence' name='intelligence' value={intelligence} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
-          <Form.Field control={Input} placeholder='wisdom' name='wisdom' value={wisdom} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
-          <Form.Field control={Input} placeholder='charisma' name='charisma' value={charisma} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
-          <Form.Field control={Input} placeholder='proficiency' name='proficiency' value={proficiency} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
-          <Form.Field control={Input} placeholder='speed' name='speed' value={speed} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+        <Form.Group>
+          <Form.Group style={{marginTop: '150px', marginRight:'75%', display: 'inline-block', width: '60px'}}>
+            <Form.Field control={Input} placeholder='strength' name='strength' value={strength} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='dexterity' name='dexterity' value={dexterity} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='constitution' name='constitution' value={constitution} onChange={onChange} style={{width: '110px',  margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='intelligence' name='intelligence' value={intelligence} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='wisdom' name='wisdom' value={wisdom} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='charisma' name='charisma' value={charisma} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='proficiency' name='proficiency' value={proficiency} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='speed' name='speed' value={speed} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          </Form.Group>
+          <Form.Group>
+          <Form.Group style={{marginTop: '150px', marginRight: '50%', display: 'inline-block', width: '60px'}}>
+            <Form.Field control={Input} placeholder='acrobatics' name='acrobatics' value={acrobatics} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='animalhandling' name='animalhandling' value={animalhandling} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='arcana' name='arcana' value={arcana} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='athletics' name='athletics' value={athletics} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='deception' name='deception' value={deception} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='history' name='history' value={history} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='insight' name='insight' value={insight} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          </Form.Group>
+          <Form.Group style={{marginTop: '150px',  marginRight: '50%', display: 'inline-block', width: '60px'}}>
+            <Form.Field control={Input} placeholder='intimidation' name='intimidation' value={intimidation} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='investigation' name='investigation' value={investigation} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='medicine' name='medicine' value={medicine} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='nature' name='nature' value={nature} onChange={onChange}style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='perception' name='perception' value={perception} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='performance' name='performance' value={performance} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='persuasion' name='persuasion' value={persuasion} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          </Form.Group>
+          <Form.Group style={{marginTop: '150px', marginRight: '50%' ,display: 'inline-block', width: '60px'}}>
+            <Form.Field control={Input} placeholder='religion' name='religion' value={religion} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='slightofhand' name='slightofhand' value={slightofhand} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='stealth' name='stealth' value={stealth} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+            <Form.Field control={Input} placeholder='survival' name='survival' value={survival} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          </Form.Group>
+          </Form.Group>
         </Form.Group>
         <input type="text" placeholder='toolproficiencies' name='toolproficiencies' value={toolproficiencies} onChange={onChange}></input>
         <input type="text" placeholder='languages' name='languages' value={languages} onChange={onChange}></input>
