@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Container, Menu } from "semantic-ui-react";
 
 export default function Navbar() {
@@ -10,9 +11,9 @@ export default function Navbar() {
                     alt="logo" />
                     DnD Character Tracker
                 </Menu.Item>
-                <Menu.Item name="Characters" />
+                <Link to="/" style={{margin: '10px'}}><Menu.Item name="Characters"/></Link>
                 <Menu.Item>
-                    <Button style={{background: '#ff010a', color: 'white'}} content='Create Character'/>
+                    <Link to="/characters/create"><Button style={{background: '#ff010a', color: 'white'}} content='Create Character'/></Link>
                 </Menu.Item>
                 <Menu.Item style={{left: '30%'}} name="Player's Handbook" />
             </Container>

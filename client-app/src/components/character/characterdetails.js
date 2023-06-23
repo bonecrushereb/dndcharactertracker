@@ -13,7 +13,7 @@ const CharacterDetails = ({ getCharacter, character: { character } }) => {
 
   return (
     <section>
-        <h1>{character.name}</h1>
+        <h1>{character.characterName}</h1>
         <p>{character.race} {character.level}</p>
     </section>
   );

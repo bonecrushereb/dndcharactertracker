@@ -18,7 +18,7 @@ const CharacterDashboard = ({getCharacters, character: {characters}}) => {
                 {characters.map((character) => (
                     <Item key={character.id}>
                         <Item.Content>
-                            <Item.Header as='a'>{character.name}</Item.Header>
+                            <Item.Header as='a'>{character.characterName}</Item.Header>
                             <Item.Meta>{character.level} - {character.race}</Item.Meta>
                             <Item.Extra>
                                 <Button onClick={() => navigate(`/characters/${character.id}`)} floated="right" content="view" style={{background: '#FF010A', color: 'white'}}/>
