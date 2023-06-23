@@ -50,14 +50,62 @@ namespace API.Models
        [BsonElement("Speed")]
        public int Speed { get; set; }
 
-       [BsonElement("abilities")]
-       public string Abilities { get; set; }
-
        [BsonElement("background")]
        public string Background{ get; set; }
        
-       [BsonElement("skillproficiencies")]
-       public string Skillproficiencies { get; set; }
+       [BsonElement("acrobatics")]
+       public List<string> acrobatics { get; set; }
+
+        [BsonElement("animalhandling")]
+       public List<string> animalhandling { get; set; }
+
+        [BsonElement("arcana")]
+       public List<string> arcana { get; set; }
+
+        [BsonElement("athletics")]
+       public List<string> athletics { get; set; }
+
+        [BsonElement("deception")]
+       public List<string> deception { get; set; }
+
+        [BsonElement("history")]
+       public List<string> history { get; set; }
+
+        [BsonElement("insight")]
+       public List<string> insight { get; set; }
+
+        [BsonElement("intimidation")]
+       public List<string> intimidation { get; set; }
+
+        [BsonElement("investigation")]
+       public List<string> investigation { get; set; }
+
+        [BsonElement("medicine")]
+       public List<string> medicine { get; set; }
+
+        [BsonElement("nature")]
+       public List<string> nature { get; set; }
+
+        [BsonElement("perception")]
+       public List<string> perception { get; set; }
+
+        [BsonElement("performance")]
+       public List<string> performance { get; set; }
+
+        [BsonElement("persuasion")]
+       public List<string> persuasion { get; set; }
+
+        [BsonElement("religion")]
+       public List<string> religion { get; set; }
+
+        [BsonElement("slightofhand")]
+       public List<string> slightofhand { get; set; }
+
+        [BsonElement("stealth")]
+       public List<string> stealth { get; set; }
+
+        [BsonElement("survival")]
+       public List<string> survival { get; set; }
 
        [BsonElement("toolproficiencies")]
        public string Toolproficiencies { get; set; }

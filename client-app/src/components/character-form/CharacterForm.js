@@ -19,9 +19,25 @@ const initialState = {
     charisma: '',
     proficiency: '',
     speed: '',
-    abilities: '',
     background: '',
-    skillproficiencies: '',
+    acrobatics: [],
+    animalhandling: [],
+    arcana: [],
+    athletics: [],
+    deception: [],
+    history: [],
+    insight: [],
+    intimidation: [],
+    investigation: [],
+    medicine: [],
+    nature: [],
+    perception: [],
+    performance: [],
+    persuasion: [],
+    religion: [],
+    slightofhand: [],
+    stealth: [],
+    survival: [],
     toolproficiencies: '',
     languages: '',
     personalityTrait: '',
@@ -56,9 +72,25 @@ const CharacterForm = ({
     charisma,
     proficiency,
     speed,
-    abilities,
     background,
-    skillproficiencies,
+    acrobatics,
+    animalhandling,
+    arcana,
+    athletics,
+    deception,
+    history,
+    insight,
+    intimidation,
+    investigation,
+    medicine,
+    nature,
+    perception,
+    performance,
+    persuasion,
+    religion,
+    slightofhand,
+    stealth,
+    survival,
     toolproficiencies,
     languages,
     personalityTrait,
@@ -98,20 +130,16 @@ const onSubmit = (e) => {
           <Form.Field control={Input} placeholder='Race' name='race' value={race} onChange={onChange} style={{marginTop: '10px'}} />
           <Form.Field control={Input} placeholder='Alignment' name='alignment' value={alignment} onChange={onChange} style={{marginTop: '10px', width: '200px'}} />
         </Form.Group>
-        <Form.Group style={{marginTop: '150px'}}>
-        <Form.Field control={Input} placeholder='strength' name='strength' value={strength} onChange={onChange} style={{width: '110px'}}/>
-        <Form.Field control={Input} placeholder='dexterity' name='dexterity' value={dexterity} onChange={onChange} style={{width: '110px'}}/>
-        <Form.Field control={Input} placeholder='constitution' name='constitution' value={constitution} onChange={onChange} style={{width: '110px'}}/>
-        <Form.Field control={Input} placeholder='intelligence' name='intelligence' value={intelligence} onChange={onChange} style={{width: '110px'}}/>
-        <Form.Field control={Input} placeholder='wisdom' name='wisdom' value={wisdom} onChange={onChange} style={{width: '110px'}}/>
-        <Form.Field control={Input} placeholder='charisma' name='charisma' value={charisma} onChange={onChange} style={{width: '110px'}}/>
-        <Form.Field control={Input} placeholder='proficiency' name='proficiency' value={proficiency} onChange={onChange} style={{width: '110px'}}/>
-        <Form.Field control={Input} placeholder='speed' name='speed' value={speed} onChange={onChange} style={{width: '110px'}}/>
-
-
+          <Form.Group style={{marginTop: '150px', display: 'inline-block', width: '60px'}}>
+          <Form.Field control={Input} placeholder='strength' name='strength' value={strength} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          <Form.Field control={Input} placeholder='dexterity' name='dexterity' value={dexterity} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          <Form.Field control={Input} placeholder='constitution' name='constitution' value={constitution} onChange={onChange} style={{width: '110px',  margin: '20px'}}/>
+          <Form.Field control={Input} placeholder='intelligence' name='intelligence' value={intelligence} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          <Form.Field control={Input} placeholder='wisdom' name='wisdom' value={wisdom} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          <Form.Field control={Input} placeholder='charisma' name='charisma' value={charisma} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          <Form.Field control={Input} placeholder='proficiency' name='proficiency' value={proficiency} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
+          <Form.Field control={Input} placeholder='speed' name='speed' value={speed} onChange={onChange} style={{width: '110px', margin: '20px'}}/>
         </Form.Group>
-        <input type="text" placeholder='abilities' name='abilities' value={abilities} onChange={onChange}></input>
-        <input type="text" placeholder='skillproficiencies' name='skillproficiencies' value={skillproficiencies} onChange={onChange}></input>
         <input type="text" placeholder='toolproficiencies' name='toolproficiencies' value={toolproficiencies} onChange={onChange}></input>
         <input type="text" placeholder='languages' name='languages' value={languages} onChange={onChange}></input>
         <input type="text" placeholder='personalityTrait' name='personalityTrait' value={personalityTrait} onChange={onChange}></input>
