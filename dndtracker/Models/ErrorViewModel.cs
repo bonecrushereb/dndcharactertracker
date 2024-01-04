@@ -1,4 +1,4 @@
-namespace dndtracker.Models;
+namespace dndTracker.Models;
 
 public class ErrorViewModel
 {

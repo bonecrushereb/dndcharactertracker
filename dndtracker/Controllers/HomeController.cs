@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using dndtracker.Models;
+using dndTracker.Models;
 
-namespace dndtracker.Controllers;
+namespace dndTracker.Controllers;
 
 public class HomeController : Controller
 {
