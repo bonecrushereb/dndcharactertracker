@@ -1,6 +1,6 @@
 @model List<Character>
 <div class="col-12 text-end m-2">
-    <a asp-controller="Character" asp-action="Upsert" class="btn btn-primary">
+    <a asp-controller="Character" asp-action="Create" class="btn btn-primary">
         <i class="bi bi-plus-circle"></i>  Create New Character
     </a>
 </div>
@@ -14,12 +14,22 @@
 <div class="col-lg-3 col-sm-6">
     @foreach(var character in Model) {
     <a asp-controller="Character" asp-action="@character.Id" 
-        class="card border-0 m-3 p-3 shadow border-top rounded" 
+        class="card border-0 m-2 rounded" 
         style="text-decoration: none;"
     >
-        <div class="card-body pb-0">
-            <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@character.Name</p>
-            <p class="card-title text-center">@character.Race - Level: @character.Level</p>
+        <div class="card-body border pb-0">
+            <a asp-asp-controller="Character" asp-action="display" asp-route-id="@character.Id">
+                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@character.Name</p>
+                <p class="card-title text-center">@character.Race - Level: @character.Level</p>
+            </a>
+            <div style="margin-left: 20px;">
+                <a asp-controller="Character" asp-action="Edit" asp-route-id="@character.Id" class="btn btn-primary">
+                Edit  <i class="bi bi-pencil"></i>
+                </a>
+                <a asp-controller="Character" asp-action="Delete" asp-route-id="@character.Id" class="btn btn-warning mx-4">
+                Delete  <i class="bi bi-x"></i>
+                </a>
+            </div>
         </div>
     </a>
     }

@@ -16,5 +16,81 @@ namespace dndTracker.Controllers
             List<Character> characterList = _db.Characters.ToList();
             return View(characterList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Character obj)
+        {
+            string[]? weapons = obj.Weapons;
+            string[]? weaponArr = weapons.Split(new char[] { ' ','\t' });
+
+            if(ModelState.IsValid) 
+            {
+                _db.Characters.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            if(id==null || id==0)
+            {
+                return NotFound();
+            }
+            Character characterFromDb = _db.Characters.Find(id);
+            if(characterFromDb == null)
+            {
+                return NotFound();
+            }
+            if(characterFromDb.Languages != null) {
+                string languages = string.Join(", ", characterFromDb.Languages);
+            } else if(characterFromDb.Weapons != null) {
+                string weapons = string.Join(", ", characterFromDb.Weapons);
+
+            }
+            return View(characterFromDb);
+        }
+        [HttpPost]
+        public IActionResult Edit(Character obj)
+        {
+            if(ModelState.IsValid) 
+            {
+                _db.Characters.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if(id==null || id==0)
+            {
+                return NotFound();
+            }
+            Character characterFromDb = _db.Characters.Find(id);
+            if(characterFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(characterFromDb);
+        }
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePost(int? id)
+        {
+            Character? obj = _db.Characters.Find(id);
+            if(obj == null) 
+            {
+                return NotFound();
+            }
+            _db.Characters.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

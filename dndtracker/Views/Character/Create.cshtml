@@ -1,0 +1,122 @@
+@model Character
+
+<form method="post">
+    <div class="container-fluid">
+        <h2 class="text-center my-5">Character Sheet</h2>
+        <div class="text-danger errorSummary" asp-validation-summary="All"></div>
+        <div class="row">
+            <input asp-for="Name" class="form-control col-sm-2 w-50 m-2" type="text" placeholder="name"/>
+            <input asp-for="Race" class="form-control col-sm-2 m-2" style="width: 120px;" type="text" placeholder="Race"/>
+            <input asp-for="Class" class="form-control col-sm-2 m-2" style="width: 100px;"  type="text" placeholder="Class" />
+            <input asp-for="Level" class="form-control col-sm-2 m-2" style="width: 50px;" type="text" placeholder="Lvl" />
+        </div>
+
+        <div class="row">
+            <input asp-for="WalkSpeed" class="form-control col-md-2 m-2" style="width: 75px;" type="text" title="Walking Speed" placeholder="walk" />
+            <input asp-for="CurrentHealth" class="form-control col-md-2 m-2" style="width: 50px;" type="text" title="Current Health" placeholder="CH" />
+            <h1 class="col-md-2" style="width: 3%;">/</h1>
+            <input asp-for="FullHealth" class="form-control col-md-2 m-2" style="width: 50px;" type="text" title="Max Health" placeholder="MH" /> 
+            <input asp-for="TempHealth" class="form-control col-md-2 m-2" style="width: 50px;" type="text" title="Temperary Health" placeholder="TH" /> 
+        </div>
+
+        <div class="row">
+            <input 
+                asp-for="Armor" 
+                class="form-control col-lg-8 w-50" 
+                style="position: absolute; margin: 16px 0 0 100px;" 
+                type="text" 
+                placeholder="Armor" 
+            />
+        </div>
+        <div class="row">
+            <input 
+                asp-for="Weapons" 
+                class="form-control col-lg-8 w-50"
+                style="position: absolute; margin: 100px 0 0 100px;" 
+                type="text" 
+                placeholder="Weapons" 
+            />
+        </div>
+            <div class="row">
+                <input 
+                    asp-for="Tools" 
+                    class="form-control col-lg-8 w-50"
+                    style="position: absolute; margin: 200px 0 0 100px;" 
+                    type="text" 
+                    placeholder="Tools" 
+                />
+            </div>
+        <div class="row">
+            <input 
+                asp-for="Languages" 
+                class="form-control col-lg-8 w-50" 
+                style="position: absolute; margin: 285px 0 0 100px;" 
+                type="text" 
+                placeholder="Languages" 
+            />
+        </div>
+        <div class="row abilScoreAll mt-2">
+            <input asp-for="Strength" class="form-control m-2" type="text" title="Strength" placeholder="Str" />
+            <input asp-for="Dexterity" class="form-control m-2" type="text" title="Dexterity" placeholder="Dex" />
+            <input asp-for="Constitution" class="form-control m-2" type="text" title="Constitution" placeholder="Con" />
+            <input asp-for="Intelligence" class="form-control m-2" type="text" title="Intelligence" placeholder="Int" />
+            <input asp-for="Wisdom" class="form-control m-2" type="text" title="Wisdom" placeholder="Wis" />
+            <input asp-for="Charisma" class="form-control m-2" type="text" title="Charisma" placeholder="Cha" />
+        </div>
+
+
+        <textarea class="form-control" name="Background" cols="100" rows="10" placeholder="Background"></textarea>
+
+        <div class="row">
+            <input asp-for="Alignment" class="form-control col-md-2 m-2" type="text" placeholder="alignment">
+            <input asp-for="Faith" class="form-control col-md-2 m-2" type="text" placeholder="Faith">
+            <input asp-for="LifeStyle" class="form-control col-md-2 m-2" type="text" placeholder="LifeStyle">
+        </div>
+        <hr />
+        <div class="row">
+            <input asp-for="HairStyle" class="form-control col-md-2 m-4 w-25" type="text" placeholder="hairstyle">
+            <input asp-for="SkinColor" class="form-control col-md-2 m-4 w-25" type="text" placeholder="skincolor">
+            <input asp-for="EyeColor" class="form-control col-md-2 m-4 w-25" type="text" placeholder="eyecolor">
+        </div>
+        <div class="row">
+            <input asp-for="Height" class="form-control col-md-2 m-4 w-25" type="text" placeholder="height (ft in)">
+            <input asp-for="Weight" class="form-control col-md-2 m-4 w-25" type="text" placeholder="weight (lbs)">
+            <input asp-for="Age" class="form-control col-md-2 m-4 w-25" type="text" placeholder="age">
+        </div>
+        <textarea asp-for="PersonalityTrait" class="form-control m-2" name="PersonalityTrait" cols="30" rows="5" placeholder="Personality Traits"></textarea>
+        <textarea asp-for="Ideals" class="form-control m-2" name="Ideals" cols="30" rows="5" placeholder="Ideals"></textarea>
+        <textarea asp-for="Bonds" class="form-control m-2" name="Bonds" cols="30" rows="5" placeholder="Bonds"></textarea>
+        <textarea asp-for="Flaws" class="form-control m-2" name="Flaws" cols="30" rows="5" placeholder="Flaws"></textarea>
+
+        <textarea asp-for="Organizations" class="form-control m-2" name="Organizations" cols="30" rows="5" placeholder="Organizations"></textarea>
+        <textarea asp-for="Allies" class="form-control m-2" name="Allies" cols="30" rows="5" placeholder="Allies"></textarea>
+        <textarea asp-for="Enemies" class="form-control m-2" name="Enemies" cols="30" rows="5" placeholder="Enemies"></textarea>
+        <textarea asp-for="BackStory" class="form-control m-2" name="Backstory" cols="30" rows="10" placeholder="Backstory"></textarea>
+
+        <div class="row pt-2">
+            <div class="col">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary">Create</button>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col">
+                <div class="text-center">
+                    <a asp-controller="Character" 
+                    asp-action="Index" 
+                    class="btn btn-outline-primary form-control"
+                    >
+                    Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

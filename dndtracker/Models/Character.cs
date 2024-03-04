@@ -13,29 +13,41 @@ namespace dndTracker.Models
         public string? Race { get; set; }
         [Required]
         public string? Class { get; set; }
+        [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number from 1 to 20")]
         public int Level { get; set; }
 
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number from 1 to 20")]
         public int Strength { get; set; }
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number from 1 to 20")]
         public int Dexterity { get; set; }
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number from 1 to 20")]
         public int Constitution { get; set; }
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number from 1 to 20")]
         public int Intelligence { get; set; }
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number from 1 to 20")]
         public int Wisdom { get; set; }
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number from 1 to 20")]
         public int Charisma { get; set; }
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number from 1 to 20")]
         public int ProfBonus { get; set; }
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number")]
         public int WalkSpeed { get; set; }
-
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number")]
         public int CurrentHealth { get; set; }
         [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number")]
         public int FullHealth { get; set; }
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number")]
         public int TempHealth { get; set; }
 
         public string? Armor { get; set; }
@@ -51,8 +63,11 @@ namespace dndTracker.Models
         public string? HairStyle { get; set; }
         public string? SkinColor { get; set; }
         public string? EyeColor { get; set; }
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number")]
         public int Height { get; set; }
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number")]
         public int Weight { get; set; }
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Please submit a number")]
         public int Age { get; set; }
 
         public string? PersonalityTrait { get; set; }
