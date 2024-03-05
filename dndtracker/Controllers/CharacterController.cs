@@ -24,8 +24,6 @@ namespace dndTracker.Controllers
         [HttpPost]
         public IActionResult Create(Character obj)
         {
-            string[]? weapons = obj.Weapons;
-            string[]? weaponArr = weapons.Split(new char[] { ' ','\t' });
 
             if(ModelState.IsValid) 
             {
@@ -41,18 +39,20 @@ namespace dndTracker.Controllers
             if(id==null || id==0)
             {
                 return NotFound();
-            }
-            Character characterFromDb = _db.Characters.Find(id);
+            }   
+            Character characterFromDb = _db.Characters.FirstOrDefault();
+            string[]? languages = characterFromDb.Languages;
+            string[]? weapons = characterFromDb.Weapons;    
             if(characterFromDb == null)
             {
                 return NotFound();
             }
-            if(characterFromDb.Languages != null) {
-                string languages = string.Join(", ", characterFromDb.Languages);
-            } else if(characterFromDb.Weapons != null) {
-                string weapons = string.Join(", ", characterFromDb.Weapons);
-
-            }
+            Console.WriteLine(languages);
+            // if(characterFromDb.Languages != null) {
+            //     return  languages = string.Join(", ", characterFromDb.Languages);
+            // } else if(characterFromDb.Weapons != null) {
+            //     return  weapons = string.Join(", ", characterFromDb.Weapons);
+            // }
             return View(characterFromDb);
         }
         [HttpPost]
