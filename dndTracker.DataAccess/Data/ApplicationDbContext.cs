@@ -1,7 +1,7 @@
 using dndTracker.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace dndTracker.Data
+namespace dndTracker.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

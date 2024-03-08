@@ -1,4 +1,4 @@
-using dndTracker.Data;
+using dndTracker.DataAccess.Data;
 using dndTracker.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,18 +41,11 @@ namespace dndTracker.Controllers
                 return NotFound();
             }   
             Character characterFromDb = _db.Characters.FirstOrDefault();
-            string[]? languages = characterFromDb.Languages;
-            string[]? weapons = characterFromDb.Weapons;    
+
             if(characterFromDb == null)
             {
                 return NotFound();
             }
-            Console.WriteLine(languages);
-            // if(characterFromDb.Languages != null) {
-            //     return  languages = string.Join(", ", characterFromDb.Languages);
-            // } else if(characterFromDb.Weapons != null) {
-            //     return  weapons = string.Join(", ", characterFromDb.Weapons);
-            // }
             return View(characterFromDb);
         }
         [HttpPost]

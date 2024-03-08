@@ -3,10 +3,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace dndTracker.Migrations
+namespace dndTracker.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedCharacterTable : Migration
+    public partial class AddCharacterToDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
